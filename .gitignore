@@ -1,0 +1,86 @@
+# Archivos de usuario
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Bb]enchmarkDotNet.Artifacts/
+
+# Archivos de dependencias
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Configuración de Visual Studio
+.vs/
+*.vscode/
+.git/
+
+# Paquetes
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+packages/
+*.pdb
+
+# Archivos de respaldo
+*.bak
+*.swp
+*~ 
+
+# Archivos generados
+*.tmp
+*.temp
+*.log
+*.cache
+*.dbmdl
+*.jfm
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Configuración de Xamarin / MAUI
+*.apk
+*.ap_ 
+*.aab
+*.ipa
+*.app
+*.xcuserstate
+*.xcuserdatad
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+*.maui.shproj
+*.maui.projitems
+
+# Archivos de Android/iOS específicos
+*.dex
+*.class
+*.apk
+*.ap_
+*.aab
+*.keystore
+*.jks
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# JetBrains Rider
+.idea/
+
+# Archivos de configuración locales
+appsettings.*.json
