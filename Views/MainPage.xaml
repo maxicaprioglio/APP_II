@@ -2,27 +2,69 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Actividad2.ViewModels"
-             x:Class="Actividad2.Views.MainPage">
+             x:Class="Actividad2.Views.MainPage"
+             Title="Calculadora">
 
     <ContentPage.BindingContext>
-        <vm:ProfileViewModel />
+        <vm:CalculadoraViewModel />
     </ContentPage.BindingContext>
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <Image Source="{Binding ImagenUrl}" HeightRequest="200" WidthRequest="200" />
+	<VerticalStackLayout Padding="20" Spacing="10">
 
-            <Entry Text="{Binding Nombre, Mode=TwoWay}" Placeholder="Nombre" />
-            <Label Text="{Binding ErrorNombre}" TextColor="Red" FontSize="12" />
-            
-            <Entry Text="{Binding Edad, Mode=TwoWay}" Placeholder="Edad" Keyboard="Numeric" />
-            <Label Text="{Binding ErrorEdad}" TextColor="Red" FontSize="12" />
+		<!-- Pantalla de la calculadora -->
+		<Entry x:Name="Display"
+		   Text="{Binding Display}"
+		   FontSize="32"
+		   HorizontalOptions="FillAndExpand"
+		   HorizontalTextAlignment="End"
+		   IsReadOnly="True"
+               />
 
-            <Editor Text="{Binding Descripcion, Mode=TwoWay}" Placeholder="Descripción" AutoSize="TextChanges" />
-            <Label Text="{Binding ErrorDescripcion}" TextColor="Red" FontSize="12" />
+		<!-- Fila 1 -->
+		<Grid ColumnSpacing="10" RowSpacing="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
 
-            <Button Text="Guardar" Command="{Binding GuardarCommand}" />
-        </VerticalStackLayout>
-    </ScrollView>
+			<!-- Números -->
+			<!--		<Button Text="CE" Grid.Row="0" Grid.Column="1" Clicked="BorrarTodoClicked"/>
+			<Button Text="C" Grid.Row="0" Grid.Column="2" Clicked="BorrarCargaClicked"/>
+			<Button Text="Borrar" Grid.Row="0" Grid.Column="3" Clicked="BorrarClicked"/>
+ -->
+            <Button Text="7" Grid.Row="1" Grid.Column="0" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="7"/>
+            <Button Text="8" Grid.Row="1" Grid.Column="1" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="8"/>
+            <Button Text="9" Grid.Row="1" Grid.Column="2" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="9"/>
+            <Button Text="/" Grid.Row="1" Grid.Column="3" Command="{Binding OperadorCommand}" CommandParameter="/"/>
+
+            <Button Text="4" Grid.Row="2" Grid.Column="0" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="4"/>
+            <Button Text="5" Grid.Row="2" Grid.Column="1" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="5"/>
+            <Button Text="6" Grid.Row="2" Grid.Column="2" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="6"/>
+            <Button Text="*" Grid.Row="2" Grid.Column="3" Command="{Binding OperadorCommand}" CommandParameter="*"/>
+
+            <Button Text="1" Grid.Row="3" Grid.Column="0" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="1"/>
+            <Button Text="2" Grid.Row="3" Grid.Column="1" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="2"/>
+            <Button Text="3" Grid.Row="3" Grid.Column="2" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="3"/>
+            <Button Text="-" Grid.Row="3" Grid.Column="3" Command="{Binding OperadorCommand}" CommandParameter="-"/>
+
+            <Button Text="0" Grid.Row="4" Grid.Column="0" BackgroundColor="LightGray" Grid.ColumnSpan="2" Command="{Binding NumeroCommand}" CommandParameter="0"/>
+            <Button Text="." Grid.Row="4" Grid.Column="2" BackgroundColor="LightGray" Command="{Binding NumeroCommand}" CommandParameter="."/>
+            <Button Text="+" Grid.Row="4" Grid.Column="3" Command="{Binding OperadorCommand}" CommandParameter="+"/>
+
+			<!-- Enter -->
+			<Button Text="Enter" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="DarkGray"
+				Command="{Binding EnterCommand}"/>
+		</Grid>
+	</VerticalStackLayout>
 
 </ContentPage>
